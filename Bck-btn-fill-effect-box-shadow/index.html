@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Woho</title>
+  <style>
+    *,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #222;
+    }
+
+    .btn {
+      border: 1px solid #ee3769;
+      color: #ee3769;
+      cursor: pointer;
+      font-family: Arial;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: color .3s ease-out;
+      line-height: 60px;
+      height: 60px;
+      width: 150px;
+      text-align: center;
+      /* to see why it works just comment overflow: hidden */
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      border-radius: 50%;
+      position: absolute;
+      top: -120px;
+      left: -75px;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      height: 300px;
+      width: 300px;
+      transition: all .3s ease-out;
+    }
+
+    .btn:hover {
+      color: #fff;
+    }
+    
+    /* width of inset box shadow a bit more than radius of before element - otherwise GLITCHES */
+    .btn:hover::before {
+      box-shadow: inset 0 0 0 160px #ee3769;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="btn">INCREDIBLE</div>
+
+</body>
+</html>
