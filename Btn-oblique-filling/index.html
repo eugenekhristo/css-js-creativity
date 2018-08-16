@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Btn</title>
+  <style>
+    *,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: linear-gradient(110deg, #49DDCC, #419DCE);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .btn {
+      background-color: transparent;
+      border: none;
+      /* border: 1px solid #fff; */
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      letter-spacing: 1px;
+      padding: 15px 50px;
+      text-transform: uppercase;
+      transition: all .3s ease-out;
+      outline: none;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .btn::before {
+      background-color: #fff;
+      clip-path: polygon(0 0, 93% 0, 100% 100%, 0% 100%);
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: translateX(-100%);
+      transition: all .3s ease-out;
+      width: 110%;
+      z-index: -1;
+    }
+
+    .btn:hover { color: #419DCE; }
+    .btn:hover::before {
+      transform: translateX(-1%);
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="btn">hover me man</div>
+    
+</body>
+</html>

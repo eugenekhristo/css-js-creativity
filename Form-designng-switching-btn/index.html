@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form</title>
+  <style>
+    *,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #00B0FF;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .form-box {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 40px;
+      position: relative;
+      width: 350px;
+    }
+    
+    .form-box__heading {
+      margin-bottom: 25px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .form-box__input {
+      border: 2px dashed #00B0FF;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 7px;
+      outline: none;
+      width: 90%;
+    }
+    
+    .form-box__input::placeholder {
+      color: #9b9a9a;
+      font-size: 12px;
+    }
+
+    .form-box__submit {
+      background-color: #191E74;
+      border: none;
+      bottom: 0;
+      color: #fff;
+      cursor: pointer;
+      left: 50%;
+      padding: 10px 20px;
+      position: absolute;
+      text-align: center;
+      text-transform: uppercase;
+      transform: translate(-50%, 50%);
+      overflow: hidden;
+    }
+
+    .form-box__submit::after {
+      backface-visibility: hidden;
+      content: 'SEND!';
+      display: inline-block;
+      position: relative;
+      color: #fff;
+      transition: all .3s;
+    }
+
+    .form-box__submit:hover::after {
+      transform: translateX(200%);
+    }
+
+    .form-box__submit::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://www.shareicon.net/download/2016/08/19/817240_message_512x512.png');
+      background-size: cover;
+      position: absolute;
+      top: 50%;
+      transform: translate(-250%, -50%);
+      transition: all .3s;
+    }
+
+    .form-box__submit:hover::before {
+      transform: translate(5px, -50%);
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <h3 class="form-box__heading">login</h3>
+    <form class="form-box__form">
+      <input type="text" class="form-box__input" placeholder="First Name">
+      <input type="text" class="form-box__input" placeholder="Last Name">
+      <input type="text" class="form-box__input" placeholder="example@email.com">
+      <button type="submit" class="form-box__submit"></button>
+    </form>
+  </div>
+
+</body>
+</html>

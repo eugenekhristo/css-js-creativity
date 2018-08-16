@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Btn</title>
+  <style>
+    *,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-btn: #5DDEAD;
+    }
+
+    body {
+      background-image: linear-gradient(240deg, #A339B4, #62258A);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 40px;
+      background-color: var(--color-btn);
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      outline: none;
+      box-shadow: 0px 5px 0 rgb(255,255,255); 
+      transition: all .3s;
+    }
+
+    .btn:active {
+      box-shadow: 0px 0px 0 rgb(255,255,255); 
+      transform: translateY(5px);
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="#" class="btn">CLICK</a>
+    
+</body>
+</html>
