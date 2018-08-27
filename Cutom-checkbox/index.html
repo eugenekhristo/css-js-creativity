@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Checky</title>
+  <style>
+    :root {
+      box-sizing: border-box;
+      --custom-checkbox-bg-checked-color: #7fb1f6;
+      --custom-checkbox-checked-color: #3c84fb;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    body {
+      background-color: #4349dd;
+    }
+
+    .checkbox {
+      /* here main thing */
+      -webkit-appearance: none;
+      position: relative;
+      
+    }
+    
+    .main {
+      cursor: pointer;
+      height: 30px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+    }
+
+    .custom {
+      background-color: rgba(0,0,0,.5);
+      border-radius: 14px;
+      display: inline-block;
+      height: 30px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: all .3s;
+      width: 100px;
+    }
+
+    .custom__circle {
+      background-color: #fff;
+      border-radius: 50px;
+      display: inline-block;
+      height: 50px;
+      transform: translateY(-10px);
+      transition: all .3s;
+      width: 50px;
+    }
+
+    .checkbox:checked + .custom {
+      background-color: var(--custom-checkbox-bg-checked-color);
+    }
+
+    .checkbox:checked  + .custom > .custom__circle {
+      background-color: var(--custom-checkbox-checked-color);
+      transform: translateY(-10px) translateX(100%);
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <label class="main">
+    <input type="checkbox" class="checkbox">
+    <span class="custom">
+      <span class="custom__circle"></span>
+    </span>
+  </label>
+
+  <script>
+  </script>
+</body>
+
+</html>

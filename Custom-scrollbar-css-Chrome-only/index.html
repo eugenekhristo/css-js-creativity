@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scrollbar</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    body {
+      background-color: #465A70;
+      height: 2000px;
+    }
+
+    ::-webkit-scrollbar {
+      background-color: red;
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #A29FA1;
+      border-radius: 10px;
+      box-shadow: inset 0 0 6px rgba(0,0,0,.5);
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #EEEFF0;
+      border-radius: 10px;
+      box-shadow: inset 0 0 6px rgba(0,0,0,.4);
+    }
+
+    ::-webkit-scrollbar:hover ::-webkit-scrollbar-thumb {
+      background-color: red;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <script>
+  </script>
+</body>
+
+</html>

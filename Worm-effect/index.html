@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Checky</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    body {
+      background-color: #4349dd;
+    }
+
+    .worm {
+      background-color: rgb(255, 0, 85);
+      border-radius: 10px;
+      height: 5px;
+      position: absolute;
+      left: 0;
+      right: 1100px;
+      bottom: -20px;
+    }
+
+    .nav {
+      position: relative;
+    }
+
+    .nav__list {
+      color: rgb(255, 255, 255);
+      display: flex;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      justify-content: space-around;
+      list-style: none;
+      margin-top: 20px;
+      text-transform: uppercase;
+    }
+
+    .nav__list > * {
+      border: 1px solid transparent;
+      cursor: pointer;
+      padding: 10px 100px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item nav__item--active">home</li>
+      <li class="nav__item">stories</li>
+      <li class="nav__item">about</li>
+      <li class="nav__item">help</li>
+    </ul>
+    <div id="worm" class="worm"></div>
+  </nav>
+
+
+  <script>
+    const getActiveListItemeUI = () => document.querySelector('.nav__list').querySelector('.nav__item--active')
+    const removeActiveClassListItemeUI = () => getActiveListItemeUI().classList.remove('nav__item--active')
+    const getWindowWidth = () => document.documentElement.clientWidth
+
+    const $worm = document.getElementById('worm')
+    const $navList = document.querySelector('.nav__list')
+    let windowWidth = getWindowWidth()
+    
+    // setup initial coords for our WORM - its width will be calculated only fron left and right coords as it is absolute positioned
+    window.addEventListener('load', e => {
+      $worm.style.transition = 'all 0s'
+      windowWidth = getWindowWidth()
+      let btnCoords = getActiveListItemeUI().getBoundingClientRect()
+      $worm.style.left = btnCoords.left + 'px'
+      $worm.style.right = windowWidth - btnCoords.right + 'px'
+    })
+
+    $navList.addEventListener('click', e => {
+      let listItem = e.target.closest('.nav__item')
+      // if we not clicked on list item - quit
+      if (!listItem) return
+      removeActiveClassListItemeUI()
+      listItem.classList.add('nav__item--active')
+
+      btnCoords = listItem.getBoundingClientRect() // coords of our nav btn item
+      wormCoords = $worm.getBoundingClientRect()
+      // specify transition again as we deleted it on resize event
+      $worm.style.transition = 'all .3s cubic-bezier(.21,.94,.61,1.02)'
+      // if that - crawl LEFT <---
+      if (btnCoords.left < wormCoords.left) {
+        $worm.style.left = btnCoords.left + 'px'
+        $worm.addEventListener('transitionend', e => {
+          if (e.propertyName !== 'left') return
+          $worm.style.right = windowWidth - btnCoords.right + 'px'
+        })
+        return
+        // else go right
+      } else {
+        $worm.style.right = windowWidth - btnCoords.right + 'px'
+        $worm.addEventListener('transitionend', e => {
+          if (e.propertyName !== 'right') return
+          $worm.style.left = btnCoords.left + 'px'
+        })
+        return
+      }
+    })
+    
+    // if window resize - to make our worm sticked - we delet transition and always change ours warm left and right properties
+    window.addEventListener('resize', e => {
+      $worm.style.transition = 'all 0s'
+      windowWidth = getWindowWidth()
+      btnCoords = getActiveListItemeUI().getBoundingClientRect()
+      $worm.style.left = btnCoords.left + 'px'
+      $worm.style.right = windowWidth - btnCoords.right + 'px'
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stacking Cards</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    body {
+      background-color: #584b40;
+      height: 2000px;
+    }
+
+    ::-webkit-scrollbar {
+      background-color: red;
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #A29FA1;
+      border-radius: 10px;
+      box-shadow: inset 0 0 6px rgba(0,0,0,.5);
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #EEEFF0;
+      border-radius: 10px;
+      box-shadow: inset 0 0 6px rgba(0,0,0,.4);
+    }
+
+    ::-webkit-scrollbar:hover ::-webkit-scrollbar-thumb {
+      background-color: red;
+    }
+
+    .cards {
+      border-radius: 5px;
+      height: 450px;
+      left: 50%;
+      overflow: hidden;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+
+      box-shadow: 1px 1px 1px white,
+                  2px 2px 1px gray,
+                  3px 3px 1px white,
+                  4px 4px 1px gray,
+                  5px 5px 1px white,
+                  6px 6px 1px gray,
+                  7px 7px 1px white,
+                  8px 8px 1px gray,
+                  9px 9px 1px white,
+                  10px 10px 1px gray,
+                  11px 11px 1px white,
+                  12px 12px 1px gray,
+                  13px 13px 1px white,
+                  14px 14px 1px gray,
+                  15px 15px 1px white,
+                  16px 16px 1px gray,
+                  25px 25px 35px rgba(0,0,0,.5);
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <div class="cards">
+    <img src="./img.jpg" alt="451" class="cards__img" height="100%" width="100%">
+  </div>
+
+
+
+  <script>
+  </script>
+</body>
+
+</html>
